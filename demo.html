@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//{business-id}.rivers.s-captcha-r1.com/v1/static/web.js"></script>
+    <style>
+      /* 整体页面样式 */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+
+      /* 表单样式 */
+      .form {
+        width: 500px;
+        padding: 30px 60px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+      }
+
+      label {
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        text-indent: 16px;
+      }
+
+      .login-button {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form">
+      <label>render 接口的验证码</label>
+      <div id="s-captcha"></div>
+      <label>render 接口的验证码 - 左</label>
+      <div id="s-captcha-left"></div>
+      <label>render 接口的验证码 - 右</label>
+      <div id="s-captcha-right"></div>
+      <label>render 接口的验证码 - 上</label>
+      <div id="s-captcha-up"></div>
+      <label>render 接口的验证码 - 下</label>
+      <div id="s-captcha-down"></div>
+      <label>render 接口的验证码 - 中</label>
+      <div id="s-captcha-center"></div>
+      <label>render 接口的验证码 - 蒙版</label>
+      <div id="s-captcha-mask"></div>
+      <label>bind 接口的验证码</label>
+      <button class="login-button" id="s-captcha-bind">登录</button>
+      <label>bind 接口的验证码 - 左</label>
+      <button class="login-button" id="s-captcha-bind-left">登录</button>
+      <label>bind 接口的验证码 - 右</label>
+      <button class="login-button" id="s-captcha-bind-right">登录</button>
+      <label>bind 接口的验证码 - 上</label>
+      <button class="login-button" id="s-captcha-bind-up">登录</button>
+      <label>bind 接口的验证码 - 下</label>
+      <button class="login-button" id="s-captcha-bind-down">登录</button>
+      <label>bind 接口的验证码 - 中</label>
+      <button class="login-button" id="s-captcha-bind-center">登录</button>
+      <label>bind 接口的验证码 - 蒙版</label>
+      <button class="login-button" id="s-captcha-bind-mask">登录</button>
+      <label>bind 接口的验证码 - reset</label>
+      <button class="login-button" id="s-captcha-bind-reset">登录</button>
+    </div>
+    <script>
+      var captcha1 = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com"
+      })
+      captcha1.render('#s-captcha', (action, data) => {
+        console.log(action, data)
+      })
+
+      new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "left",
+      }).render('#s-captcha-left', (action, data) => {
+        console.log(action, data)
+      })
+      new SCaptcha({
+        "businessid": '{business-id}', 
+       "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "right",
+      }).render('#s-captcha-right', (action, data) => {
+        console.log(action, data)
+      })
+      new SCaptcha({
+        "businessid": '{business-id}', 
+       "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "up",
+      }).render('#s-captcha-up', (action, data) => {
+        console.log(action, data)
+      })
+      new SCaptcha({
+        "businessid": '{business-id}', 
+       "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "down",
+      }).render('#s-captcha-down', (action, data) => {
+        console.log(action, data)
+      })
+      new SCaptcha({
+        "businessid": '{business-id}', 
+       "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "center",
+      }).render('#s-captcha-center', (action, data) => {
+        console.log(action, data)
+      })
+      new SCaptcha({
+        "businessid": '{business-id}', 
+       "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "mask",
+      }).render('#s-captcha-mask', (action, data) => {
+        console.log(action, data)
+      })
+
+      var captcha2 = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com"
+      })
+      captcha2.bind('#s-captcha-bind', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind").addEventListener("click", (e) => {
+        captcha2.start(e);
+      })
+
+      
+      var captcha2_left = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "left"
+      })
+      captcha2_left.bind('#s-captcha-bind-left', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-left").addEventListener("click", (e) => {
+        captcha2_left.start(e);
+      })
+      
+      var captcha2_right = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "right"
+      })
+      captcha2_right.bind('#s-captcha-bind-right', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-right").addEventListener("click", (e) => {
+        captcha2_right.start(e);
+      })      
+
+      var captcha2_up = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "up"
+      })
+      captcha2_up.bind('#s-captcha-bind-up', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-up").addEventListener("click", (e) => {
+        captcha2_up.start(e);
+      })
+      
+            
+      var captcha2_down = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "down"
+      })
+      captcha2_down.bind('#s-captcha-bind-down', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-down").addEventListener("click", (e) => {
+        captcha2_down.start(e);
+      })
+            
+      var captcha2_center = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "center"
+      })
+      captcha2_center.bind('#s-captcha-bind-center', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-center").addEventListener("click", (e) => {
+        captcha2_center.start(e);
+      })
+            
+      var captcha2_mask = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com",
+        "position": "mask"
+      })
+      captcha2_mask.bind('#s-captcha-bind-mask', (action, data) => {
+        console.log(action, data)
+      })
+      document.getElementById("s-captcha-bind-mask").addEventListener("click", (e) => {
+        captcha2_mask.start(e);
+      })
+
+      var captcha3 = new SCaptcha({
+        "businessid": '{business-id}', 
+        "server": "//{business-id}.rivers.s-captcha-r1.com"
+      })
+      captcha3.bind('#s-captcha-bind-reset', (action, data) => {
+        console.log(action, data)
+        if (action === "finished") {
+          captcha3.reset();
+        }
+      })
+      document.getElementById("s-captcha-bind-reset").addEventListener("click", (e) => {
+        captcha3.start(e);
+      })
+      
+      window.onerror = (message, source, lineno, colno, error) => {
+        if (error) {
+          //alert(`[unknown error] [msg: ${message}] [err: ${error}]`)
+        }
+      }
+    </script>
+  </body>
+</html>
