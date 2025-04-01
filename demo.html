@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//{business-id}.rivers.s-captcha-r1.com/v1/static/web.js"></script>
+    <!-- 百川验证码 -->
+    <!-- <script src="//{business-id}.rivers.s-captcha-r1.com/v1/static/web.js"></script> -->
+    <!-- safepoint 验证码 -->
+    <script src="//{business-id}.safepoint.s-captcha-r1.com/v1/static/web.js"></script>
     <style>
       /* 整体页面样式 */
       body {
@@ -90,7 +93,6 @@
     <script>
       var captcha1 = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com"
       })
       captcha1.render('#s-captcha', (action, data) => {
         console.log(action, data)
@@ -98,42 +100,36 @@
 
       new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "left",
       }).render('#s-captcha-left', (action, data) => {
         console.log(action, data)
       })
       new SCaptcha({
         "businessid": '{business-id}', 
-       "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "right",
       }).render('#s-captcha-right', (action, data) => {
         console.log(action, data)
       })
       new SCaptcha({
         "businessid": '{business-id}', 
-       "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "up",
       }).render('#s-captcha-up', (action, data) => {
         console.log(action, data)
       })
       new SCaptcha({
         "businessid": '{business-id}', 
-       "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "down",
       }).render('#s-captcha-down', (action, data) => {
         console.log(action, data)
       })
       new SCaptcha({
         "businessid": '{business-id}', 
-       "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "center",
       }).render('#s-captcha-center', (action, data) => {
         console.log(action, data)
       })
       new SCaptcha({
         "businessid": '{business-id}', 
-       "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "mask",
       }).render('#s-captcha-mask', (action, data) => {
         console.log(action, data)
@@ -141,7 +137,6 @@
 
       var captcha2 = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com"
       })
       captcha2.bind('#s-captcha-bind', (action, data) => {
         console.log(action, data)
@@ -153,7 +148,6 @@
       
       var captcha2_left = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "left"
       })
       captcha2_left.bind('#s-captcha-bind-left', (action, data) => {
@@ -165,7 +159,6 @@
       
       var captcha2_right = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "right"
       })
       captcha2_right.bind('#s-captcha-bind-right', (action, data) => {
@@ -177,7 +170,6 @@
 
       var captcha2_up = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "up"
       })
       captcha2_up.bind('#s-captcha-bind-up', (action, data) => {
@@ -190,7 +182,6 @@
             
       var captcha2_down = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "down"
       })
       captcha2_down.bind('#s-captcha-bind-down', (action, data) => {
@@ -202,7 +193,6 @@
             
       var captcha2_center = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "center"
       })
       captcha2_center.bind('#s-captcha-bind-center', (action, data) => {
@@ -214,7 +204,6 @@
             
       var captcha2_mask = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com",
         "position": "mask"
       })
       captcha2_mask.bind('#s-captcha-bind-mask', (action, data) => {
@@ -226,7 +215,6 @@
 
       var captcha3 = new SCaptcha({
         "businessid": '{business-id}', 
-        "server": "//{business-id}.rivers.s-captcha-r1.com"
       })
       captcha3.bind('#s-captcha-bind-reset', (action, data) => {
         console.log(action, data)
