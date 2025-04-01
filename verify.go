@@ -1,13 +1,12 @@
 package verify
 
 import (
-	"crypto/rsa"
 	"fmt"
 	"sync"
 	"time"
 
 	"github.com/chaitin/scaptcha-sdk-golang/utils"
-	"github.com/golang-jwt/jwt/v5"
+	"github.com/golang-jwt/jwt"
 )
 
 // 可能需要返回给用户业务的数据，v-id、score等
@@ -17,7 +16,8 @@ type VerifyClaims struct {
 
 // TokenVerifier 处理 JWT token 的验证和防重放
 type TokenVerifier struct {
-	publicKey *rsa.PublicKey
+	publicKey any
+	// publicKey *rsa.PublicKey
 	// 使用 sync.Map 替代普通 map，专门用于并发场景
 	usedTokens sync.Map
 	// 清理间隔
@@ -74,9 +74,6 @@ func (v *TokenVerifier) Stop() {
 // VerifyToken 验证 token 并防止重放攻击
 func (v *TokenVerifier) VerifyToken(tokenString string) (bool, VerifyClaims, error) {
 	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
-		if _, ok := token.Method.(*jwt.SigningMethodRSA); !ok {
-			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
-		}
 		return v.publicKey, nil
 	})
 	if err != nil {
@@ -89,7 +86,12 @@ func (v *TokenVerifier) VerifyToken(tokenString string) (bool, VerifyClaims, err
 	}
 
 	// 验证过期时间
-	exp, err := claims.GetExpirationTime()
+	expClaim, ok := claims["exp"].(float64)
+	if !ok {
+		err = fmt.Errorf("exp claim not found or invalid type")
+		return false, VerifyClaims{}, err
+	}
+	exp := time.Unix(int64(expClaim), 0)
 	if err != nil {
 		return false, VerifyClaims{}, fmt.Errorf("exp not found")
 	}
