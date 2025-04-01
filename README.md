@@ -4,7 +4,8 @@
 
 访问验证码服务，创建验证码场景并获取配置信息
 
-[国内应用地址](https://rivers.chaitin.cn/?rc=KYWFRHCKNYWJ7VAZQZSDNJUOAUSXZ4XB&app_scope=scaptcha)
+[v1应用地址](https://rivers.chaitin.cn/?rc=KYWFRHCKNYWJ7VAZQZSDNJUOAUSXZ4XB&app_scope=scaptcha)
+[v2应用地址](https://captcha.app.safepoint.cloud/)
 
 ### 业务接入
 [前端业务接入 demo](https://github.com/chaitin/scaptcha-sdk-golang/-/blob/main/demo.html)
