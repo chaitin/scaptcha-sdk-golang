@@ -8,11 +8,11 @@
 [v2应用地址](https://captcha.app.safepoint.cloud/)
 
 ### 业务接入
-[前端业务接入 demo](https://github.com/chaitin/scaptcha-sdk-golang/-/blob/main/demo.html)
+[前端业务接入 demo](https://github.com/chaitin/scaptcha-sdk-golang/blob/main/demo.html)
 
 替换 demo.html 中的 business-id 为验证码服务的场景 ID
 
-[后端业务接入 demo](https://github.com/chaitin/scaptcha-sdk-golang/-/blob/main/cmd/demo/demo.go)
+[后端业务接入 demo](https://github.com/chaitin/scaptcha-sdk-golang/blob/main/cmd/demo/demo.go)
 
 替换 demo.go 中的 publicKeyStr 为下载的证书
 
